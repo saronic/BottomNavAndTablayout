@@ -3,12 +3,14 @@ package com.android.gifts.bottomnavigation;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class SampleFragment extends Fragment {
+    private static final String TAG = "SampleFragment";
     private static final String STARTING_TEXT = "Four Buttons Bottom Navigation";
 
     public SampleFragment() {
@@ -16,6 +18,7 @@ public class SampleFragment extends Fragment {
 
     public static SampleFragment newInstance(String text) {
         Bundle args = new Bundle();
+        Log.d(TAG, "newInstance: " + text);
         args.putString(STARTING_TEXT, text);
 
         SampleFragment sampleFragment = new SampleFragment();

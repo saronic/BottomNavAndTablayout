@@ -1,7 +1,9 @@
 package com.android.gifts.bottomnavigation;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarBadge;
@@ -10,6 +12,7 @@ import com.roughike.bottombar.OnTabSelectedListener;
 
 public class FourButtonsActivity extends AppCompatActivity {
     private BottomBar bottomBar;
+    private static final String TAG = "FourButtonsActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +20,10 @@ public class FourButtonsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_four_buttons);
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
+        Fragment oneFragment = new OneFragment();
 
         bottomBar.setFragmentItems(getSupportFragmentManager(), R.id.fragmentContainer,
-                new BottomBarFragment(SampleFragment.newInstance("Content for recents."), R.drawable.ic_update_white_24dp, "Recents"),
+                new BottomBarFragment(oneFragment, R.drawable.ic_update_white_24dp, "Recents"),
                 new BottomBarFragment(SampleFragment.newInstance("Content for food."), R.drawable.ic_local_dining_white_24dp, "Food"),
                 new BottomBarFragment(SampleFragment.newInstance("Content for favorites."), R.drawable.ic_favorite_white_24dp, "Favorites"),
                 new BottomBarFragment(SampleFragment.newInstance("Content for locations."), R.drawable.ic_location_on_white_24dp, "Location")
@@ -36,7 +40,20 @@ public class FourButtonsActivity extends AppCompatActivity {
             public void onItemSelected(int position) {
                 switch (position) {
                     case 0:
-                        // Item 1 Selected
+                        Log.d(TAG, "onItemSelected: " + position);
+                        break;
+                    case 1:
+                        Log.d(TAG, "onItemSelected: " + position);
+                        break;
+
+                    case 2:
+                        Log.d(TAG, "onItemSelected: " + position);
+                        break;
+
+                    case 3:
+                        Log.d(TAG, "onItemSelected: " + position);
+                        break;
+
                 }
             }
         });
